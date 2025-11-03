@@ -1,46 +1,67 @@
-# Avalco
+# Avalco – Peer-to-Peer Credit Infrastructure
 
-## TL;DR / Elevator
-Peer-to-Peer Payment & Consumer Credit.  
-Mix aus PayPal + Klarna – aber für Individuals untereinander.
+Avalco is a peer-to-peer consumer credit & payment engine inspired by Klarna & PayPal — but designed for individuals financing each other directly.
 
-## Problem & Insight
-Privatpersonen können kaum “Buy-Now-Pay-Later” untereinander durchführen.  
-Der Kredit-Layer existiert nur im B2C Handel – nicht im P2P.
+The core idea: private BNPL rails for real people — not merchants.
 
-## What this project does
-- P2P Payments
-- Ratenzahlung zwischen Privatpersonen
-- Credit-Layer handled by platform
-- Bank account verification + payment initiation via FinAPI
+I built Avalco end-to-end as a solo founder / engineer.
 
-## Technology
-| Area | Stack |
-| --- | --- |
+---
+
+## Why this exists
+Consumer credit products are distribution-constrained.
+BNPL is accessible in e-commerce — but not in *human-to-human* transactions.
+
+Avalco abstracts identity, bank connectivity and repayment logic into a simple P2P experience.
+
+---
+
+## What Avalco does
+- issue & manage peer-to-peer repayment contracts
+- handle payment initiation from connected bank accounts
+- execute automated repayment schedules
+- manage state: due → paid → delinquent
+
+This is real financial engineering — not just UI.
+
+---
+
+## Tech Stack
+| Layer | Tools |
+|---|---|
 | Frontend | React, Redux |
 | Backend | Node.js |
-| AI / LLM | — (none in this project) |
-| Infra / Data | MongoDB, FinAPI |
+| Banking Rails | FinAPI |
+| Data | MongoDB |
 
-## Architecture (High Level)
-Web client → Node backend → FinAPI rails for actual payment orders.  
-MongoDB stores user, credit + transaction state.
+---
 
-## Live / Demo
-- Landing: https://avalco-lp.vercell.app
-(no full demo – payment rails would require real FinAPI production licencing)
+## Architecture — high level
+Client app → Node backend → FinAPI orchestration  
+Transaction state machine is stored in MongoDB.
 
-## My Role
-Built solo (100%).  
-Everything: domain modelling → backend → frontend → FinAPI integration.
+(Realistically shippable to production rails.)
 
-## Timeline
-2024
+---
 
-## Why this was hard / what I learned
-- Financial rails modelling (settlement state machines)
-- FinAPI integration (sandbox logic, identity + account patterns)
-- Compliance constraints / realistic architecture for payments
+## Live
+Landing page: https://avalco-lp.vercell.app
+
+---
+
+## Role
+Solo built: research → architecture → implementation.
+
+Year built: 2024
+
+---
+
+## What was interesting here
+- modeling credit state-machines (immutability + linear flows)
+- implementing real bank rails (FinAPI)
+- designing UX for commitment / liability transparency
+
+---
 
 ## Status
-Internal MVP / prototype
+Internal prototype
