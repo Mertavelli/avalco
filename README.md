@@ -45,7 +45,7 @@ Transaction state machine is stored in MongoDB.
 ---
 
 ## Live
-Landing page: https://avalco-lp.vercell.app
+Landing page: https://avalco-lp.vercel.app
 
 ---
 
