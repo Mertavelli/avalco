@@ -1,77 +1,46 @@
-# Avalco — Peer-to-Peer Payment & Credit Platform  
-*Designed and built in 2024 | Demo: [avalco-lp.vercel.app](https://avalco-lp.vercel.app/)*  
+# Avalco
 
----
+## TL;DR / Elevator
+Peer-to-Peer Payment & Consumer Credit.  
+Mix aus PayPal + Klarna – aber für Individuals untereinander.
 
-## 💡 Overview
-**Avalco** is a next-generation **peer-to-peer online payment platform**, blending the convenience of PayPal with the flexibility of Klarna.  
-It enables private individuals to **pay or receive money in installments**, with **Avalco acting as the credit provider** that manages risk, credit scoring, and payment collection.
+## Problem & Insight
+Privatpersonen können kaum “Buy-Now-Pay-Later” untereinander durchführen.  
+Der Kredit-Layer existiert nur im B2C Handel – nicht im P2P.
 
-Built as a proof-of-concept for a modern **FinTech infrastructure**, Avalco demonstrates how AI-enabled underwriting and modular payment flows can be built with a lean, secure architecture.
+## What this project does
+- P2P Payments
+- Ratenzahlung zwischen Privatpersonen
+- Credit-Layer handled by platform
+- Bank account verification + payment initiation via FinAPI
 
-> ⚠️ *Note: Only the landing page is hosted publicly for demonstration purposes due to credit and infrastructure costs. The full application (backend and dashboard) remains private.*
+## Technology
+| Area | Stack |
+| --- | --- |
+| Frontend | React, Redux |
+| Backend | Node.js |
+| AI / LLM | — (none in this project) |
+| Infra / Data | MongoDB, FinAPI |
 
----
+## Architecture (High Level)
+Web client → Node backend → FinAPI rails for actual payment orders.  
+MongoDB stores user, credit + transaction state.
 
-## 🚀 Core Features
-- **Instant P2P Payments:** Secure wallet-to-wallet transactions between verified users.  
-- **Buy Now, Pay Later (BNPL):** Avalco offers short-term installment options for private users.  
-- **Automated Risk Assessment:** Backend performs credit scoring and payment-limit calculations.  
-- **Smart Invoicing:** Auto-generated invoices and payment reminders via email or dashboard.  
-- **KYC Integration:** Simulated identity verification flow using mock APIs.  
+## Live / Demo
+- Landing: https://avalco-lp.vercell.app
+(no full demo – payment rails would require real FinAPI production licencing)
 
----
+## My Role
+Built solo (100%).  
+Everything: domain modelling → backend → frontend → FinAPI integration.
 
-## 🧱 Architecture Overview
-Avalco is composed of two main layers:
+## Timeline
+2024
 
-| Layer | Description | Tech Stack |
-|--------|--------------|-------------|
-| **Frontend (Web App)** | Responsive user interface for account creation, payments, and credit management. | Next.js, TypeScript, TailwindCSS |
-| **Backend (API Layer)** | Handles user authentication, credit scoring logic, and transaction processing. | FastAPI, PostgreSQL, Stripe API, Python |
-| **AI / Automation Layer** | Provides rule-based risk analysis and transaction monitoring. | Python, OpenAI API (concept) |
-| **Infrastructure** | Containerized deployment with CI/CD pipeline for testing & staging. | Docker, Vercel (frontend), AWS (backend concept) |
+## Why this was hard / what I learned
+- Financial rails modelling (settlement state machines)
+- FinAPI integration (sandbox logic, identity + account patterns)
+- Compliance constraints / realistic architecture for payments
 
----
-
-## 📊 Case Study Summary
-> **Objective:** Prototype a scalable BNPL and P2P payment model for private users.  
-> **Timeframe:** Q1–Q2 2024 (≈ 200 development hours).  
-> **Role:** Full-stack engineer & product architect.  
-
-**Challenges Addressed**
-- Integrating peer-to-peer logic with credit management.  
-- Designing a secure data model for credit scoring and loan tracking.  
-- Creating a modular system that could later connect to real financial APIs.  
-
-**Key Outcomes**
-- Functional prototype of a modern payments ecosystem.  
-- Modularized backend for transaction flows and credit APIs.  
-- Clean, conversion-optimized landing page communicating the concept clearly.  
-
----
-
-## 🧠 Learnings & Focus Areas
-- Building **credit-based systems** with risk control logic.  
-- Designing **scalable data models** for payment platforms.  
-- Understanding **compliance boundaries** (KYC, AML, data security).  
-- Combining **UX simplicity** with complex financial logic under the hood.  
-
----
-
-## 🖼️ Screenshots
-*(Replace with your own visuals)*  
-| Landing Page | Payment Flow | Dashboard (private build) |
-|---------------|---------------|----------------------------|
-| ![](assets/landing.png) | ![](assets/payment.png) | ![](assets/dashboard.png) |
-
----
-
-## 🔗 Links
-- **Landing Page (Public Demo):** [avalco-lp.vercel.app](https://avalco-lp.vercel.app/)  
-- **Repository:** *(this repo)*  
-- **Status:** Concept / Prototype  
-
----
-
-## 🧩 Tech Summary
+## Status
+Internal MVP / prototype
